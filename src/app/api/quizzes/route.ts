@@ -5,6 +5,9 @@ import { Quiz } from "@/models/Quiz";
 import { nanoid } from "nanoid";
 import { sanitizeInput } from "@/lib/utils";
 
+// Force Node.js runtime for MongoDB/Mongoose support
+export const runtime = 'nodejs';
+
 // Rate limiting map (simple in-memory, use Redis in production)
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
 const RATE_LIMIT = 100; // requests per window
