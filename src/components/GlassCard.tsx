@@ -8,7 +8,7 @@ interface GlassCardProps {
   className?: string;
   hover?: boolean;
   glow?: boolean;
-  glowColor?: string;
+  glowColor?: "teal" | "cyan" | "emerald" | "blue";
   padding?: "none" | "sm" | "md" | "lg";
 }
 
@@ -17,7 +17,7 @@ export function GlassCard({
   className,
   hover = true,
   glow = false,
-  glowColor = "indigo",
+  glowColor = "teal",
   padding = "md",
 }: GlassCardProps) {
   const paddingClasses = {
@@ -27,22 +27,29 @@ export function GlassCard({
     lg: "p-8",
   };
 
+  const glowClasses = {
+    teal: "shadow-teal-500/5 hover:shadow-teal-500/10",
+    cyan: "shadow-cyan-500/5 hover:shadow-cyan-500/10",
+    emerald: "shadow-emerald-500/5 hover:shadow-emerald-500/10",
+    blue: "shadow-blue-500/5 hover:shadow-blue-500/10",
+  };
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
-      whileHover={hover ? { y: -2, scale: 1.005 } : undefined}
+      transition={{ duration: 0.2, ease: "easeOut" }}
+      whileHover={hover ? { y: -1 } : undefined}
       className={cn(
-        "relative rounded-xl border border-white/[0.06] bg-[#0c0c10]/80 backdrop-blur-xl shadow-2xl overflow-hidden",
-        hover && "transition-all duration-200 hover:border-white/[0.1] hover:bg-[#0e0e14]/90",
-        glow && `shadow-${glowColor}-500/10 hover:shadow-${glowColor}-500/20`,
+        "relative rounded-xl border border-zinc-800 bg-zinc-900/80 backdrop-blur-lg overflow-hidden",
+        hover && "transition-all duration-200 hover:border-zinc-700 hover:bg-zinc-900/90",
+        glow && glowClasses[glowColor],
         paddingClasses[padding],
         className
       )}
     >
       {/* Subtle top highlight */}
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-zinc-700/50 to-transparent" />
       <div className="relative z-10">{children}</div>
     </motion.div>
   );
@@ -55,6 +62,7 @@ export function StatCard({
   icon: Icon,
   trend,
   trendUp,
+  iconColor = "teal",
   className,
 }: {
   title: string;
@@ -62,28 +70,36 @@ export function StatCard({
   icon?: React.ComponentType<{ className?: string }>;
   trend?: string;
   trendUp?: boolean;
+  iconColor?: "teal" | "cyan" | "emerald" | "blue";
   className?: string;
 }) {
+  const iconColorClasses = {
+    teal: "bg-teal-500/10 border-teal-500/20 text-teal-400",
+    cyan: "bg-cyan-500/10 border-cyan-500/20 text-cyan-400",
+    emerald: "bg-emerald-500/10 border-emerald-500/20 text-emerald-400",
+    blue: "bg-blue-500/10 border-blue-500/20 text-blue-400",
+  };
+
   return (
     <GlassCard className={cn("p-5", className)} hover={false}>
       <div className="flex items-start justify-between">
         <div>
-          <p className="text-xs font-medium text-white/40 uppercase tracking-wider mb-1">
+          <p className="text-xs font-medium text-zinc-500 uppercase tracking-wider mb-1">
             {title}
           </p>
           <p className="text-2xl font-bold text-white">{value}</p>
           {trend && (
             <p className={cn(
               "text-xs mt-1 font-medium",
-              trendUp ? "text-emerald-400" : "text-rose-400"
+              trendUp ? "text-emerald-400" : "text-red-400"
             )}>
               {trendUp ? "↑" : "↓"} {trend}
             </p>
           )}
         </div>
         {Icon && (
-          <div className="p-2.5 rounded-lg bg-indigo-500/10 border border-indigo-500/20">
-            <Icon className="h-5 w-5 text-indigo-400" />
+          <div className={cn("p-2.5 rounded-lg border", iconColorClasses[iconColor])}>
+            <Icon className="h-5 w-5" />
           </div>
         )}
       </div>

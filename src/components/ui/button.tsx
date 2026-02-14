@@ -4,22 +4,22 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
         default:
-          "bg-gradient-to-r from-cyan-600 to-blue-600 text-white shadow-lg hover:shadow-cyan-500/20 hover:from-cyan-500 hover:to-blue-500 active:scale-[0.98]",
+          "bg-teal-600 text-white hover:bg-teal-500 active:bg-teal-700 shadow-sm",
         destructive:
-          "bg-rose-600/90 text-white hover:bg-rose-600 shadow-lg hover:shadow-rose-500/20",
+          "bg-red-600/90 text-white hover:bg-red-500 shadow-sm",
         outline:
-          "border border-white/[0.08] bg-white/[0.02] backdrop-blur-xl hover:bg-white/[0.06] hover:border-white/[0.12] text-white/80 hover:text-white",
+          "border border-zinc-700 bg-zinc-900/50 hover:bg-zinc-800 hover:border-zinc-600 text-zinc-300 hover:text-white",
         secondary:
-          "bg-white/[0.06] text-white/80 backdrop-blur-xl hover:bg-white/[0.1] hover:text-white",
-        ghost: "hover:bg-white/[0.06] text-white/60 hover:text-white",
-        link: "text-cyan-400 underline-offset-4 hover:underline hover:text-cyan-300",
-        glow: "bg-gradient-to-r from-cyan-600 to-blue-600 text-white shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30 hover:from-cyan-500 hover:to-blue-500 ring-1 ring-cyan-400/20",
-        success: "bg-emerald-600 text-white hover:bg-emerald-500 shadow-lg hover:shadow-emerald-500/20",
+          "bg-zinc-800 text-zinc-300 hover:bg-zinc-700 hover:text-white",
+        ghost: "hover:bg-zinc-800 text-zinc-400 hover:text-white",
+        link: "text-teal-400 underline-offset-4 hover:underline hover:text-teal-300",
+        glow: "bg-teal-600 text-white hover:bg-teal-500 shadow-lg shadow-teal-600/20 hover:shadow-teal-500/30 ring-1 ring-teal-500/30",
+        success: "bg-emerald-600 text-white hover:bg-emerald-500 shadow-sm",
       },
       size: {
         default: "h-10 px-5 py-2",

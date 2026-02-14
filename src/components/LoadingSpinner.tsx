@@ -47,14 +47,14 @@ export function LoadingSpinner({ size = "md", className }: LoadingSpinnerProps) 
 export function LoadingSkeleton({ className }: { className?: string }) {
   return (
     <div
-      className={`animate-pulse bg-white/10 rounded-xl ${className}`}
+      className={`animate-pulse bg-zinc-800 rounded-xl ${className}`}
     />
   );
 }
 
 export function QuizCardSkeleton() {
   return (
-    <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-2xl p-6 space-y-4">
+    <div className="rounded-xl border border-zinc-800 bg-zinc-900/80 backdrop-blur-lg p-6 space-y-4">
       <LoadingSkeleton className="h-6 w-3/4" />
       <LoadingSkeleton className="h-4 w-1/2" />
       <div className="flex gap-2 mt-4">

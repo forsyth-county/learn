@@ -9,8 +9,8 @@ export interface QuizTheme {
 }
 
 export const defaultTheme: QuizTheme = {
-  primaryColor: "#3b82f6",
-  accentColor: "#8b5cf6",
+  primaryColor: "#14b8a6",
+  accentColor: "#06b6d4",
   fontFamily: "Inter",
   backgroundStyle: "gradient",
   customWelcomeText: "Welcome to this quiz!",
@@ -33,17 +33,17 @@ export function getBackgroundStyle(
   switch (theme.backgroundStyle) {
     case "gradient":
       return {
-        background: `linear-gradient(135deg, ${theme.primaryColor}15 0%, #0a0a0a 50%, ${theme.accentColor}15 100%)`,
+        background: `linear-gradient(135deg, ${theme.primaryColor}15 0%, #09090b 50%, ${theme.accentColor}15 100%)`,
       };
     case "pattern":
       return {
         backgroundImage: `radial-gradient(${theme.primaryColor}20 1px, transparent 1px)`,
         backgroundSize: "20px 20px",
-        backgroundColor: "#0a0a0a",
+        backgroundColor: "#09090b",
       };
     default:
       return {
-        backgroundColor: "#0a0a0a",
+        backgroundColor: "#09090b",
       };
   }
 }

@@ -19,8 +19,8 @@ const QuestionSchema = new mongoose.Schema({
 });
 
 const ThemeSchema = new mongoose.Schema({
-  primaryColor: { type: String, default: "#3b82f6" },
-  accentColor: { type: String, default: "#8b5cf6" },
+  primaryColor: { type: String, default: "#14b8a6" },
+  accentColor: { type: String, default: "#06b6d4" },
   fontFamily: { type: String, default: "Inter" },
   backgroundStyle: { type: String, default: "gradient" },
   customWelcomeText: String,
@@ -70,8 +70,8 @@ async function seed() {
       isPublished: true,
       timeLimit: 10, // 10 minutes
       theme: {
-        primaryColor: "#3b82f6",
-        accentColor: "#8b5cf6",
+        primaryColor: "#14b8a6",
+        accentColor: "#06b6d4",
         fontFamily: "Inter",
         backgroundStyle: "gradient",
         customWelcomeText: "Welcome to this sample math quiz!",

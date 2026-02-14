@@ -75,8 +75,8 @@ const QuizSchema = new Schema<IQuiz>(
     timeLimit: { type: Number },
     maxAttempts: { type: Number },
     theme: {
-      primaryColor: { type: String, default: "#3b82f6" },
-      accentColor: { type: String, default: "#8b5cf6" },
+      primaryColor: { type: String, default: "#14b8a6" },
+      accentColor: { type: String, default: "#06b6d4" },
       fontFamily: { type: String, default: "Inter" },
       backgroundStyle: {
         type: String,

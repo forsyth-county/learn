@@ -181,7 +181,7 @@ export default function EditQuizPage() {
   if (!isLoaded || loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <LoadingSpinner size="lg" className="text-blue-500" />
+        <LoadingSpinner size="lg" className="text-teal-500" />
       </div>
     );
   }
@@ -189,7 +189,7 @@ export default function EditQuizPage() {
   if (!quiz) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p className="text-white/60">Quiz not found</p>
+        <p className="text-zinc-500">Quiz not found</p>
       </div>
     );
   }
@@ -197,12 +197,12 @@ export default function EditQuizPage() {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0a0a0a]/80 backdrop-blur-2xl">
+      <header className="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/90 backdrop-blur-xl">
         <div className="flex items-center justify-between px-6 py-4">
           <div className="flex items-center gap-4">
             <Link
               href="/dashboard"
-              className="text-white/60 hover:text-white transition-colors"
+              className="text-zinc-500 hover:text-white transition-colors"
             >
               <ArrowLeft className="h-5 w-5" />
             </Link>
@@ -213,7 +213,7 @@ export default function EditQuizPage() {
                 className="text-xl font-bold bg-transparent border-none px-0 focus:ring-0 h-auto"
                 placeholder="Quiz Title"
               />
-              <p className="text-sm text-white/40">
+              <p className="text-sm text-zinc-500">
                 {quiz.questions.length} questions •{" "}
                 {quiz.isPublished ? "Published" : "Draft"}
               </p>
@@ -413,17 +413,17 @@ export default function EditQuizPage() {
 
               {submissions.length === 0 ? (
                 <GlassCard className="p-12 text-center">
-                  <Users className="h-16 w-16 text-white/20 mx-auto mb-4" />
+                  <Users className="h-16 w-16 text-zinc-700 mx-auto mb-4" />
                   <h4 className="text-lg font-medium text-white mb-2">
                     No submissions yet
                   </h4>
-                  <p className="text-white/60">
+                  <p className="text-zinc-500">
                     Share your quiz to start collecting responses
                   </p>
                 </GlassCard>
               ) : (
-                <GlassCard className="divide-y divide-white/10 overflow-hidden">
-                  <div className="grid grid-cols-5 gap-4 p-4 bg-white/5 text-sm font-medium text-white/60">
+                <GlassCard className="divide-y divide-zinc-800 overflow-hidden">
+                  <div className="grid grid-cols-5 gap-4 p-4 bg-zinc-800/50 text-sm font-medium text-zinc-400">
                     <div>Student Name</div>
                     <div>Student ID</div>
                     <div>Score</div>
@@ -438,7 +438,7 @@ export default function EditQuizPage() {
                       <div className="text-white font-medium">
                         {submission.studentName}
                       </div>
-                      <div className="text-white/60">
+                      <div className="text-zinc-500">
                         {submission.studentIdentifier || "—"}
                       </div>
                       <div className="text-white">
@@ -447,9 +447,9 @@ export default function EditQuizPage() {
                       <div
                         className={`font-medium ${
                           (submission.score / submission.totalPoints) >= 0.7
-                            ? "text-green-400"
+                            ? "text-emerald-400"
                             : (submission.score / submission.totalPoints) >= 0.5
-                            ? "text-yellow-400"
+                            ? "text-amber-400"
                             : "text-red-400"
                         }`}
                       >
@@ -458,7 +458,7 @@ export default function EditQuizPage() {
                         )}
                         %
                       </div>
-                      <div className="text-white/60">
+                      <div className="text-zinc-500">
                         {new Date(submission.completedAt).toLocaleDateString()}
                       </div>
                     </div>

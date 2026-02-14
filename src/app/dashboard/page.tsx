@@ -121,7 +121,7 @@ export default function DashboardPage() {
   if (!isLoaded || !isSignedIn) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <LoadingSpinner size="lg" className="text-cyan-500" />
+        <LoadingSpinner size="lg" className="text-teal-500" />
       </div>
     );
   }
@@ -129,9 +129,9 @@ export default function DashboardPage() {
   return (
     <div className="min-h-screen flex">
       {/* Sidebar */}
-      <aside className="w-64 border-r border-white/[0.06] bg-[#0a0a0e]/90 backdrop-blur-xl p-5 flex flex-col">
+      <aside className="w-64 border-r border-zinc-800 bg-zinc-950/90 backdrop-blur-xl p-5 flex flex-col">
         <div className="mb-8">
-          <h1 className="text-lg font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+          <h1 className="text-lg font-bold bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">
             LearnForsyth
           </h1>
         </div>
@@ -139,14 +139,14 @@ export default function DashboardPage() {
         <nav className="flex-1 space-y-1">
           <Link
             href="/dashboard"
-            className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-white/[0.06] text-white text-sm font-medium"
+            className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-zinc-800/80 text-white text-sm font-medium"
           >
-            <BookOpen className="h-4 w-4 text-cyan-400" />
+            <BookOpen className="h-4 w-4 text-teal-400" />
             My Quizzes
           </Link>
         </nav>
 
-        <div className="pt-5 border-t border-white/[0.06]">
+        <div className="pt-5 border-t border-zinc-800">
           <div className="flex items-center gap-3">
             <UserButton
               appearance={{
@@ -159,7 +159,7 @@ export default function DashboardPage() {
               <p className="text-sm font-medium text-white truncate">
                 {user?.firstName || "Teacher"}
               </p>
-              <p className="text-xs text-white/40 truncate">
+              <p className="text-xs text-zinc-500 truncate">
                 {user?.primaryEmailAddress?.emailAddress}
               </p>
             </div>
@@ -173,7 +173,7 @@ export default function DashboardPage() {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h2 className="text-2xl font-bold text-white">My Quizzes</h2>
-            <p className="text-white/50 text-sm mt-1">
+            <p className="text-zinc-500 text-sm mt-1">
               Create and manage your assessments
             </p>
           </div>
@@ -189,28 +189,28 @@ export default function DashboardPage() {
         <div className="grid md:grid-cols-3 gap-4 mb-8">
           <GlassCard className="p-5" padding="none" hover={false}>
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center">
-                <BookOpen className="h-5 w-5 text-cyan-400" />
+              <div className="w-10 h-10 rounded-lg bg-teal-500/10 border border-teal-500/20 flex items-center justify-center">
+                <BookOpen className="h-5 w-5 text-teal-400" />
               </div>
               <div>
                 <p className="text-xl font-bold text-white">
                   {stats?.totalQuizzes ?? quizzes.length}
                 </p>
-                <p className="text-xs text-white/40">Total Quizzes</p>
+                <p className="text-xs text-zinc-500">Total Quizzes</p>
               </div>
             </div>
           </GlassCard>
 
           <GlassCard className="p-5" padding="none" hover={false}>
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
-                <Users className="h-5 w-5 text-blue-400" />
+              <div className="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center">
+                <Users className="h-5 w-5 text-cyan-400" />
               </div>
               <div>
                 <p className="text-xl font-bold text-white">
                   {stats?.totalSubmissions ?? 0}
                 </p>
-                <p className="text-xs text-white/40">Total Submissions</p>
+                <p className="text-xs text-zinc-500">Total Submissions</p>
               </div>
             </div>
           </GlassCard>
@@ -224,7 +224,7 @@ export default function DashboardPage() {
                 <p className="text-xl font-bold text-white">
                   {stats?.averageScore ? `${Math.round(stats.averageScore)}%` : "—"}
                 </p>
-                <p className="text-xs text-white/40">Average Score</p>
+                <p className="text-xs text-zinc-500">Average Score</p>
               </div>
             </div>
           </GlassCard>
@@ -239,11 +239,11 @@ export default function DashboardPage() {
           </div>
         ) : quizzes.length === 0 ? (
           <GlassCard className="p-10 text-center" padding="none">
-            <BookOpen className="h-12 w-12 text-white/20 mx-auto mb-4" />
+            <BookOpen className="h-12 w-12 text-zinc-700 mx-auto mb-4" />
             <h3 className="text-lg font-semibold text-white mb-2">
               No quizzes yet
             </h3>
-            <p className="text-white/50 text-sm mb-6">
+            <p className="text-zinc-500 text-sm mb-6">
               Create your first quiz to get started
             </p>
             <Link href="/quizzes/new">
@@ -258,9 +258,9 @@ export default function DashboardPage() {
             {quizzes.map((quiz, index) => (
               <motion.div
                 key={quiz._id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
+                transition={{ duration: 0.25, delay: index * 0.05 }}
               >
                 <GlassCard className="p-6 h-full flex flex-col">
                   <div className="flex-1">
@@ -269,20 +269,20 @@ export default function DashboardPage() {
                         {quiz.title}
                       </h3>
                       {quiz.isPublished && (
-                        <span className="px-2 py-1 text-xs rounded-full bg-green-500/20 text-green-400 shrink-0 ml-2">
+                        <span className="px-2 py-1 text-xs rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/20 shrink-0 ml-2">
                           Published
                         </span>
                       )}
                     </div>
                     {quiz.subject && (
-                      <p className="text-sm text-purple-400 mb-2">{quiz.subject}</p>
+                      <p className="text-sm text-teal-400 mb-2">{quiz.subject}</p>
                     )}
                     {quiz.description && (
-                      <p className="text-sm text-white/60 line-clamp-2 mb-3">
+                      <p className="text-sm text-zinc-500 line-clamp-2 mb-3">
                         {quiz.description}
                       </p>
                     )}
-                    <div className="flex items-center gap-4 text-xs text-white/40">
+                    <div className="flex items-center gap-4 text-xs text-zinc-600">
                       <span className="flex items-center gap-1">
                         <BookOpen className="h-3 w-3" />
                         {quiz.questions?.length || 0} questions
@@ -294,7 +294,7 @@ export default function DashboardPage() {
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-2 mt-4 pt-4 border-t border-white/10">
+                  <div className="flex items-center gap-2 mt-4 pt-4 border-t border-zinc-800">
                     <Link href={`/quizzes/${quiz._id}`} className="flex-1">
                       <Button variant="outline" size="sm" className="w-full">
                         <Edit3 className="h-4 w-4 mr-2" />
@@ -315,7 +315,7 @@ export default function DashboardPage() {
                       size="sm"
                       onClick={() => handleDeleteQuiz(quiz._id)}
                       disabled={deleting === quiz._id}
-                      className="text-red-400 hover:text-red-300 hover:border-red-400/50"
+                      className="text-red-400 hover:text-red-300 hover:border-red-500/50"
                     >
                       {deleting === quiz._id ? (
                         <LoadingSpinner size="sm" />
@@ -336,7 +336,7 @@ export default function DashboardPage() {
             <h3 className="text-xl font-semibold text-white mb-4">
               Recent Submissions
             </h3>
-            <GlassCard className="divide-y divide-white/10">
+            <GlassCard className="divide-y divide-zinc-800" padding="none">
               {stats.recentSubmissions.slice(0, 5).map((submission) => (
                 <div
                   key={submission._id}
@@ -346,7 +346,7 @@ export default function DashboardPage() {
                     <p className="text-white font-medium">
                       {submission.studentName}
                     </p>
-                    <p className="text-sm text-white/60">
+                    <p className="text-sm text-zinc-500">
                       {submission.quizTitle}
                     </p>
                   </div>
@@ -354,7 +354,7 @@ export default function DashboardPage() {
                     <p className="text-white font-medium">
                       {submission.score}/{submission.totalPoints}
                     </p>
-                    <p className="text-xs text-white/40">
+                    <p className="text-xs text-zinc-600">
                       {new Date(submission.completedAt).toLocaleDateString()}
                     </p>
                   </div>

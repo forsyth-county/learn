@@ -181,19 +181,19 @@ export default function TakeQuizPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#050508]">
-        <LoadingSpinner size="lg" className="text-cyan-500" />
+      <div className="min-h-screen flex items-center justify-center bg-zinc-950">
+        <LoadingSpinner size="lg" className="text-teal-500" />
       </div>
     );
   }
 
   if (error || !quiz) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#050508]">
+      <div className="min-h-screen flex items-center justify-center bg-zinc-950">
         <GlassCard className="p-8 text-center max-w-md" padding="none">
-          <XCircle className="h-12 w-12 text-rose-400 mx-auto mb-4" />
+          <XCircle className="h-12 w-12 text-red-400 mx-auto mb-4" />
           <h1 className="text-xl font-bold text-white mb-2">Quiz Not Found</h1>
-          <p className="text-white/50 text-sm">{error || "This quiz doesn't exist or is no longer available."}</p>
+          <p className="text-zinc-500 text-sm">{error || "This quiz doesn't exist or is no longer available."}</p>
         </GlassCard>
       </div>
     );
