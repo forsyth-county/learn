@@ -5,6 +5,9 @@ import { Quiz } from "@/models/Quiz";
 import { Submission } from "@/models/Submission";
 import mongoose from "mongoose";
 
+// Force Node.js runtime for MongoDB/Mongoose support
+export const runtime = 'nodejs';
+
 interface RouteParams {
   params: Promise<{ id: string }>;
 }

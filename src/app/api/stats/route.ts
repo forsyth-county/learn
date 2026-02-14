@@ -4,6 +4,9 @@ import { connectToDatabase } from "@/lib/mongodb";
 import { Quiz } from "@/models/Quiz";
 import { Submission } from "@/models/Submission";
 
+// Force Node.js runtime for MongoDB/Mongoose support
+export const runtime = 'nodejs';
+
 // GET /api/stats - Get dashboard statistics for the authenticated teacher
 export async function GET() {
   try {

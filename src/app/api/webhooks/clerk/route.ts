@@ -5,6 +5,9 @@ import { NextResponse } from "next/server";
 import { connectToDatabase } from "@/lib/mongodb";
 import { User } from "@/models/User";
 
+// Force Node.js runtime for MongoDB/Mongoose support
+export const runtime = 'nodejs';
+
 export async function POST(req: Request) {
   // Get the webhook secret from environment variables
   const WEBHOOK_SECRET = process.env.CLERK_WEBHOOK_SECRET;

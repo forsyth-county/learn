@@ -4,6 +4,9 @@ import { Quiz } from "@/models/Quiz";
 import { Submission } from "@/models/Submission";
 import { sanitizeInput, hashIP, calculateScore } from "@/lib/utils";
 
+// Force Node.js runtime for MongoDB/Mongoose support
+export const runtime = 'nodejs';
+
 // Rate limiting for public endpoints (stricter)
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
 const RATE_LIMIT = 30; // requests per window
