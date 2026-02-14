@@ -1,6 +1,6 @@
 "use client";
 
-import { SignedIn, SignedOut, SignInButton, useUser, useClerk } from "@clerk/nextjs";
+import { SignedOut, SignInButton, useUser, useClerk } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
@@ -57,13 +57,13 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 bg-clip-text text-transparent glow-text">
+                <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-teal-400 bg-clip-text text-transparent">
                   LearnForsyth
                 </h1>
-                <p className="text-xl md:text-2xl text-white/70 mb-8 max-w-2xl mx-auto">
+                <p className="text-xl md:text-2xl text-white/70 mb-4 max-w-2xl mx-auto">
                   Modern Quizzes for Forsyth Educators
                 </p>
-                <p className="text-lg text-white/50 mb-12 max-w-xl mx-auto">
+                <p className="text-base text-white/40 mb-10 max-w-xl mx-auto">
                   Create beautiful, engaging assessments. Share with students instantly.
                   No student accounts required.
                 </p>
@@ -71,9 +71,9 @@ export default function Home() {
                 {isLoaded ? (
                   <SignedOut>
                     <SignInButton mode="modal">
-                      <Button size="lg" variant="glow" className="text-lg px-10 py-6">
+                      <Button size="lg" variant="glow" className="text-base px-8 py-5">
                         Sign In as Teacher
-                        <Sparkles className="ml-2 h-5 w-5" />
+                        <Sparkles className="ml-2 h-4 w-4" />
                       </Button>
                     </SignInButton>
                   </SignedOut>
@@ -81,11 +81,11 @@ export default function Home() {
                   <Button 
                     size="lg" 
                     variant="glow" 
-                    className="text-lg px-10 py-6"
+                    className="text-base px-8 py-5"
                     onClick={() => clerk.openSignIn()}
                   >
                     Sign In as Teacher
-                    <Sparkles className="ml-2 h-5 w-5" />
+                    <Sparkles className="ml-2 h-4 w-4" />
                   </Button>
                 )}
               </motion.div>
@@ -95,42 +95,42 @@ export default function Home() {
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="grid md:grid-cols-3 gap-6 mt-20"
+                className="grid md:grid-cols-3 gap-5 mt-16"
               >
-                <GlassCard className="p-6 text-left">
-                  <div className="w-12 h-12 rounded-2xl bg-blue-500/20 flex items-center justify-center mb-4">
-                    <Zap className="h-6 w-6 text-blue-400" />
+                <GlassCard className="p-5 text-left" padding="none">
+                  <div className="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-3">
+                    <Zap className="h-5 w-5 text-cyan-400" />
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">
+                  <h3 className="text-base font-semibold text-white mb-1.5">
                     Instant Creation
                   </h3>
-                  <p className="text-white/60 text-sm">
+                  <p className="text-white/50 text-sm leading-relaxed">
                     Build quizzes in minutes with our intuitive builder. Multiple question
                     types, custom themes, and instant sharing.
                   </p>
                 </GlassCard>
 
-                <GlassCard className="p-6 text-left">
-                  <div className="w-12 h-12 rounded-2xl bg-purple-500/20 flex items-center justify-center mb-4">
-                    <BookOpen className="h-6 w-6 text-purple-400" />
+                <GlassCard className="p-5 text-left" padding="none">
+                  <div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-3">
+                    <BookOpen className="h-5 w-5 text-blue-400" />
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">
+                  <h3 className="text-base font-semibold text-white mb-1.5">
                     Student-Friendly
                   </h3>
-                  <p className="text-white/60 text-sm">
+                  <p className="text-white/50 text-sm leading-relaxed">
                     Students access quizzes via shareable links. No accounts needed —
                     just enter their name and start.
                   </p>
                 </GlassCard>
 
-                <GlassCard className="p-6 text-left">
-                  <div className="w-12 h-12 rounded-2xl bg-green-500/20 flex items-center justify-center mb-4">
-                    <Shield className="h-6 w-6 text-green-400" />
+                <GlassCard className="p-5 text-left" padding="none">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-3">
+                    <Shield className="h-5 w-5 text-emerald-400" />
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">
+                  <h3 className="text-base font-semibold text-white mb-1.5">
                     Privacy-First
                   </h3>
-                  <p className="text-white/60 text-sm">
+                  <p className="text-white/50 text-sm leading-relaxed">
                     FERPA & GDPR compliant. Minimal data collection, no tracking,
                     and secure storage of all submissions.
                   </p>
@@ -140,7 +140,7 @@ export default function Home() {
           </section>
 
           {/* Footer */}
-          <footer className="py-8 text-center text-white/40 text-sm">
+          <footer className="py-6 text-center text-white/30 text-xs">
             <p>© {new Date().getFullYear()} LearnForsyth. Built for Forsyth County educators.</p>
           </footer>
         </main>

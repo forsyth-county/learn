@@ -121,7 +121,7 @@ export default function DashboardPage() {
   if (!isLoaded || !isSignedIn) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <LoadingSpinner size="lg" className="text-blue-500" />
+        <LoadingSpinner size="lg" className="text-cyan-500" />
       </div>
     );
   }
@@ -129,29 +129,29 @@ export default function DashboardPage() {
   return (
     <div className="min-h-screen flex">
       {/* Sidebar */}
-      <aside className="w-64 border-r border-white/10 bg-white/5 backdrop-blur-2xl p-6 flex flex-col">
+      <aside className="w-64 border-r border-white/[0.06] bg-[#0a0a0e]/90 backdrop-blur-xl p-5 flex flex-col">
         <div className="mb-8">
-          <h1 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+          <h1 className="text-lg font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
             LearnForsyth
           </h1>
         </div>
 
-        <nav className="flex-1 space-y-2">
+        <nav className="flex-1 space-y-1">
           <Link
             href="/dashboard"
-            className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/10 text-white"
+            className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-white/[0.06] text-white text-sm font-medium"
           >
-            <BookOpen className="h-5 w-5" />
+            <BookOpen className="h-4 w-4 text-cyan-400" />
             My Quizzes
           </Link>
         </nav>
 
-        <div className="pt-6 border-t border-white/10">
+        <div className="pt-5 border-t border-white/[0.06]">
           <div className="flex items-center gap-3">
             <UserButton
               appearance={{
                 elements: {
-                  avatarBox: "w-10 h-10",
+                  avatarBox: "w-9 h-9",
                 },
               }}
             />
@@ -159,7 +159,7 @@ export default function DashboardPage() {
               <p className="text-sm font-medium text-white truncate">
                 {user?.firstName || "Teacher"}
               </p>
-              <p className="text-xs text-white/50 truncate">
+              <p className="text-xs text-white/40 truncate">
                 {user?.primaryEmailAddress?.emailAddress}
               </p>
             </div>
@@ -172,59 +172,59 @@ export default function DashboardPage() {
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h2 className="text-3xl font-bold text-white">My Quizzes</h2>
-            <p className="text-white/60 mt-1">
+            <h2 className="text-2xl font-bold text-white">My Quizzes</h2>
+            <p className="text-white/50 text-sm mt-1">
               Create and manage your assessments
             </p>
           </div>
           <Link href="/quizzes/new">
-            <Button variant="glow" size="lg">
-              <Plus className="h-5 w-5 mr-2" />
+            <Button variant="glow">
+              <Plus className="h-4 w-4 mr-2" />
               Create New Quiz
             </Button>
           </Link>
         </div>
 
         {/* Stats Cards */}
-        <div className="grid md:grid-cols-3 gap-6 mb-8">
-          <GlassCard className="p-6">
+        <div className="grid md:grid-cols-3 gap-4 mb-8">
+          <GlassCard className="p-5" padding="none" hover={false}>
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-blue-500/20 flex items-center justify-center">
-                <BookOpen className="h-6 w-6 text-blue-400" />
+              <div className="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center">
+                <BookOpen className="h-5 w-5 text-cyan-400" />
               </div>
               <div>
-                <p className="text-2xl font-bold text-white">
+                <p className="text-xl font-bold text-white">
                   {stats?.totalQuizzes ?? quizzes.length}
                 </p>
-                <p className="text-sm text-white/60">Total Quizzes</p>
+                <p className="text-xs text-white/40">Total Quizzes</p>
               </div>
             </div>
           </GlassCard>
 
-          <GlassCard className="p-6">
+          <GlassCard className="p-5" padding="none" hover={false}>
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-purple-500/20 flex items-center justify-center">
-                <Users className="h-6 w-6 text-purple-400" />
+              <div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
+                <Users className="h-5 w-5 text-blue-400" />
               </div>
               <div>
-                <p className="text-2xl font-bold text-white">
+                <p className="text-xl font-bold text-white">
                   {stats?.totalSubmissions ?? 0}
                 </p>
-                <p className="text-sm text-white/60">Total Submissions</p>
+                <p className="text-xs text-white/40">Total Submissions</p>
               </div>
             </div>
           </GlassCard>
 
-          <GlassCard className="p-6">
+          <GlassCard className="p-5" padding="none" hover={false}>
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-green-500/20 flex items-center justify-center">
-                <BarChart3 className="h-6 w-6 text-green-400" />
+              <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
+                <BarChart3 className="h-5 w-5 text-emerald-400" />
               </div>
               <div>
-                <p className="text-2xl font-bold text-white">
+                <p className="text-xl font-bold text-white">
                   {stats?.averageScore ? `${Math.round(stats.averageScore)}%` : "—"}
                 </p>
-                <p className="text-sm text-white/60">Average Score</p>
+                <p className="text-xs text-white/40">Average Score</p>
               </div>
             </div>
           </GlassCard>
@@ -232,18 +232,18 @@ export default function DashboardPage() {
 
         {/* Quiz Grid */}
         {loading ? (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {[1, 2, 3].map((i) => (
               <QuizCardSkeleton key={i} />
             ))}
           </div>
         ) : quizzes.length === 0 ? (
-          <GlassCard className="p-12 text-center">
-            <BookOpen className="h-16 w-16 text-white/20 mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-white mb-2">
+          <GlassCard className="p-10 text-center" padding="none">
+            <BookOpen className="h-12 w-12 text-white/20 mx-auto mb-4" />
+            <h3 className="text-lg font-semibold text-white mb-2">
               No quizzes yet
             </h3>
-            <p className="text-white/60 mb-6">
+            <p className="text-white/50 text-sm mb-6">
               Create your first quiz to get started
             </p>
             <Link href="/quizzes/new">

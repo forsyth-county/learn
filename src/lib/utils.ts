@@ -1,19 +1,14 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { createHash } from "crypto";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
 export function hashIP(ip: string): string {
-  // Simple hash function for IP anonymization
-  let hash = 0;
-  for (let i = 0; i < ip.length; i++) {
-    const char = ip.charCodeAt(i);
-    hash = ((hash << 5) - hash) + char;
-    hash = hash & hash;
-  }
-  return Math.abs(hash).toString(16);
+  // Use SHA-256 for secure IP anonymization
+  return createHash("sha256").update(ip).digest("hex").substring(0, 16);
 }
 
 export function sanitizeInput(input: string): string {

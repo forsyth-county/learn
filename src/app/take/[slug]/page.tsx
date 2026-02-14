@@ -181,19 +181,19 @@ export default function TakeQuizPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#0a0a0a]">
-        <LoadingSpinner size="lg" className="text-blue-500" />
+      <div className="min-h-screen flex items-center justify-center bg-[#050508]">
+        <LoadingSpinner size="lg" className="text-cyan-500" />
       </div>
     );
   }
 
   if (error || !quiz) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#0a0a0a]">
-        <GlassCard className="p-8 text-center max-w-md">
-          <XCircle className="h-16 w-16 text-red-400 mx-auto mb-4" />
-          <h1 className="text-2xl font-bold text-white mb-2">Quiz Not Found</h1>
-          <p className="text-white/60">{error || "This quiz doesn't exist or is no longer available."}</p>
+      <div className="min-h-screen flex items-center justify-center bg-[#050508]">
+        <GlassCard className="p-8 text-center max-w-md" padding="none">
+          <XCircle className="h-12 w-12 text-rose-400 mx-auto mb-4" />
+          <h1 className="text-xl font-bold text-white mb-2">Quiz Not Found</h1>
+          <p className="text-white/50 text-sm">{error || "This quiz doesn't exist or is no longer available."}</p>
         </GlassCard>
       </div>
     );
@@ -220,30 +220,33 @@ export default function TakeQuizPage() {
             exit={{ opacity: 0, y: -20 }}
             className="w-full max-w-md"
           >
-            <GlassCard className="p-8">
-              <div className="text-center mb-8">
+            <GlassCard className="p-6" padding="none">
+              <div className="text-center mb-6">
                 <div
-                  className="w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center"
-                  style={{ backgroundColor: `${theme.primaryColor}20` }}
+                  className="w-12 h-12 rounded-lg mx-auto mb-4 flex items-center justify-center border"
+                  style={{ 
+                    backgroundColor: `${theme.primaryColor}10`,
+                    borderColor: `${theme.primaryColor}30`
+                  }}
                 >
-                  <BookOpen className="h-8 w-8" style={{ color: theme.primaryColor }} />
+                  <BookOpen className="h-6 w-6" style={{ color: theme.primaryColor }} />
                 </div>
-                <h1 className="text-2xl font-bold text-white mb-2">{quiz.title}</h1>
+                <h1 className="text-xl font-bold text-white mb-1">{quiz.title}</h1>
                 {quiz.subject && (
-                  <p className="text-sm" style={{ color: theme.accentColor }}>
+                  <p className="text-xs font-medium" style={{ color: theme.accentColor }}>
                     {quiz.subject}
                   </p>
                 )}
               </div>
 
               {theme.customWelcomeText && (
-                <p className="text-white/70 text-center mb-6">
+                <p className="text-white/60 text-center text-sm mb-5">
                   {theme.customWelcomeText}
                 </p>
               )}
 
-              <div className="space-y-4 mb-6">
-                <div className="flex items-center justify-between text-sm text-white/60">
+              <div className="space-y-4 mb-5">
+                <div className="flex items-center justify-between text-xs text-white/50">
                   <span>{quiz.questions.length} questions</span>
                   {quiz.timeLimit && <span>{quiz.timeLimit} minutes</span>}
                 </div>
